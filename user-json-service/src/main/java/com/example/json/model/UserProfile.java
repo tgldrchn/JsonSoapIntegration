@@ -1,28 +1,21 @@
 package com.example.json.model;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "user_profiles")
+@Document(collection = "user_profiles")
 @Data
 @NoArgsConstructor
 public class UserProfile {
-
     @Id
     private String userId;
-
     private String name;
     private String email;
-
-    @Column(columnDefinition = "TEXT")
     private String bio;
-
     private String phone;
     private String avatarUrl;
-
-    @Column(updatable = true)
     private LocalDateTime updatedAt;
 }
